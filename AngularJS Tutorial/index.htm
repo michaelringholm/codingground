@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="cardModule">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    
+    <script>
+        function CardController($scope) {
+            $scope.Cards = [{ Title: 'Fox'}, {Title:'Bear'}, {Title:"Skeleton"}];
+        }
+        
+        var cardModule = angular.module('cardModule', []);
+        cardModule.controller("CardController", CardController);
+        
+    </script>
+  </head>
+  <body>
+    <div>
+      <label>Name:</label>
+      <input type="text" ng-model="loginName" placeholder="Enter a name here">
+      <hr>
+      <h1>AngularJS Tutorial</h1>
+      <h2>Player Name: {{loginName}}!</h2>
+      <div data-ng-controller="CardController">
+        <div data-ng-repeat="Card in Cards">{{Card.Title}}</div>
+      </div>
+    </div>
+  </body>
+</html>
